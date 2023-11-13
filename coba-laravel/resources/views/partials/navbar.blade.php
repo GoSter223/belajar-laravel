@@ -8,7 +8,7 @@
         <div class="navbar-nav">
           <a class="nav-link {{ ($tittle === "Home") ? 'active' : '' }}" aria-current="page" href="/">Home</a>
           <a class="nav-link {{ ($tittle === "About") ? 'active' : '' }}" href="/about">About</a>
-          <a class="nav-link {{ ($tittle === "Posts") ? 'active' : '' }}" href="/blog">Blog</a>
+          <a class="nav-link {{ ($tittle === "Posts") ? 'active' : '' }}" href="/posts">Blog</a>
         </div>
       </div>
     </div>

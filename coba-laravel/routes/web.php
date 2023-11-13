@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('home', [
         "tittle" => "Home"
     ]);
-});
+})->name('home');
 
 Route::get('/about', function () {
     return view('about', [
@@ -28,10 +28,10 @@ Route::get('/about', function () {
         "email" => "alif@gmail.com",
         "image" => "img/a.jpg"
     ]);
-});
+})->name('about');
 
-Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts', [PostController::class, 'index'])->name('posts');
 
 
 //halaman single post
-Route::get('posts/{slug}', [PostController::class, 'show']);
+Route::get('posts/{slug}', [PostController::class, 'show'])->name('detail');

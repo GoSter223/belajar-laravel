@@ -3,6 +3,7 @@
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,13 +18,13 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
     return view('home', [
-        "tittle" => "Home"
+        "title" => "Home"
     ]);
 })->name('home');
 
 Route::get('/about', function () {
     return view('about', [
-        "tittle" => "About",
+        "title" => "About",
         "name" => "Alif",
         "email" => "alif@gmail.com",
         "image" => "img/a.jpg"
@@ -35,3 +36,18 @@ Route::get('/posts', [PostController::class, 'index'])->name('posts');
 
 //halaman single post
 Route::get('posts/{post:slug}', [PostController::class, 'show'])->name('detail');
+
+Route::get('/categories', function () {
+    return View('categories', [
+        'title' => 'Post Categories',
+        'categories' => Category::all()
+    ]);
+});
+
+Route::get('/categories/{category:slug}', function (Category $category) {
+    return View('category', [
+        'title' => $category->name,
+        'posts' => $category->posts,
+        'category' => $category->name
+    ]);
+});
